@@ -8,16 +8,20 @@ from PIL import Image, PngImagePlugin
 
 timenow = time.time()
 models = requests.get(url=f'{settings.url}/sdapi/v1/sd-models').json()
+prompt = payload.prompt
+negative = payload.negative
 
 for model in models:
   option_payload = {
     "sd_model_checkpoint": model.get("title"),
   }
 
+  response = requests.post(url=f'{settings.url}/sdapi/v1/options', json=option_payload)
+
   payload = {
-    "prompt": payload.prompt,
-    "negative_prompt": payload.negative,
-    "steps": 5,
+    "prompt": prompt,
+    "negative_prompt": negative,
+    "steps": 10,
     "width": 512,
     "height": 512,
     "seed": timenow,
@@ -35,7 +39,7 @@ for model in models:
     image = Image.open(io.BytesIO(base64.b64decode(i.split(",",1)[0])))
 
     png_payload = {
-        "image": "data:image/png;base64," + i
+      "image": "data:image/png;base64," + i
     }
     response2 = requests.post(url=f'{settings.url}/sdapi/v1/png-info', json=png_payload)
 
