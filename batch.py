@@ -16,20 +16,21 @@ for model in models:
     "sd_model_checkpoint": model.get("title"),
   }
 
+  timestart = time.time()
   response = requests.post(url=f'{settings.url}/sdapi/v1/options', json=option_payload)
 
   payload = {
     "prompt": prompt,
     "negative_prompt": negative,
-    "steps": 10,
+    "steps": 25,
     "width": 512,
     "height": 512,
     "seed": timenow,
     "cfg_scale": 7,
-    "sampler_name": "DPM++ SDE Karras",
+    "sampler_name": "Euler a",
   }
 
-  print("Creating image for " + model.get("title") + ".")
+  print("Creating image for " + model + ". Number " + str(models.index(model) + 1) + " of " + str(len(models)) + ".")
 
   response = requests.post(url=f'{settings.url}/sdapi/v1/txt2img', json=payload)
 
