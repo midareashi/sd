@@ -20,7 +20,7 @@ for model in models:
   payload = {
     "prompt": prompt,
     "negative_prompt": negative,
-    "steps": 20,
+    "steps": 30,
     "width": 512,
     "height": 512,
     "seed": timenow,

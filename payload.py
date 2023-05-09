@@ -1,5 +1,5 @@
 prompt = """
-  extremely long pale blue hair, pale blue dress, oversized plants, oversized mushrooms, oversized butterflies, barefoot, highly detailed fantasy setting, highly detailed pupils, slim waist, small breasts, narrow hips, young woman 16 years old, barefoot, (the borrowers, the incredible shrinking woman, tiny woman in a normal size world),
+  extremely long pale blue hair, pale blue knee length apron dress, oversized plants, oversized mushrooms, oversized butterflies, barefoot, highly detailed fantasy setting, highly detailed pupils, slim figure of a young 16 years old woman, barefoot, (tiny woman in a normal size world:1.6),
 
   (RAW photo, best quality), (realistic, photo-realistic:1.3), masterpiece, extremely detailed photograph, 8k wallpaper, huge file size, ultra-detailed, highres, absurdres, sharp focus,
   """
