@@ -15,14 +15,12 @@ for model in models:
   option_payload = {
     "sd_model_checkpoint": model.get("title"),
   }
-
-  timestart = time.time()
   response = requests.post(url=f'{settings.url}/sdapi/v1/options', json=option_payload)
 
   payload = {
     "prompt": prompt,
     "negative_prompt": negative,
-    "steps": 25,
+    "steps": 20,
     "width": 512,
     "height": 512,
     "seed": timenow,
@@ -30,7 +28,7 @@ for model in models:
     "sampler_name": "Euler a",
   }
 
-  print("Creating image for " + model + ". Number " + str(models.index(model) + 1) + " of " + str(len(models)) + ".")
+  print("Creating image for " + str(model.get("model_name")) + ". Number " + str(models.index(model) + 1) + " of " + str(len(models)) + ".")
 
   response = requests.post(url=f'{settings.url}/sdapi/v1/txt2img', json=payload)
 
@@ -46,5 +44,5 @@ for model in models:
 
     pnginfo = PngImagePlugin.PngInfo()
     pnginfo.add_text("parameters", response2.json().get("info"))
-    imgname = "outputs/img" + str(timenow) + "-" + str(model.get("title")) + ".png"
+    imgname = "outputs/img" + str(timenow) + "-" + str(model.get("model_name")) + ".png"
     image.save(imgname, pnginfo=pnginfo)
