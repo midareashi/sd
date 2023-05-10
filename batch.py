@@ -1,9 +1,9 @@
 import requests
-import settings
+import config.settings as settings
 import io
 import base64
 import time
-import payload
+import config.payload as payload
 from PIL import Image, PngImagePlugin
 
 timenow = time.time()
@@ -20,12 +20,12 @@ for model in models:
   payload = {
     "prompt": prompt,
     "negative_prompt": negative,
-    "steps": 30,
+    "steps": 15,
     "width": 512,
     "height": 512,
     "seed": timenow,
-    "cfg_scale": 7,
-    "sampler_name": "Euler a",
+    "cfg_scale": 9,
+    "sampler_name": "DPM++ SDE Karras",
   }
 
   print("Creating image for " + str(model.get("model_name")) + ". Number " + str(models.index(model) + 1) + " of " + str(len(models)) + ".")
@@ -41,6 +41,8 @@ for model in models:
       "image": "data:image/png;base64," + i
     }
     response2 = requests.post(url=f'{settings.url}/sdapi/v1/png-info', json=png_payload)
+
+    print(response2.json().get("info"))
 
     pnginfo = PngImagePlugin.PngInfo()
     pnginfo.add_text("parameters", response2.json().get("info"))
