@@ -42,8 +42,6 @@ for model in models:
     }
     response2 = requests.post(url=f'{settings.url}/sdapi/v1/png-info', json=png_payload)
 
-    #print(response2.json().get("info"))
-
     pnginfo = PngImagePlugin.PngInfo()
     pnginfo.add_text("parameters", response2.json().get("info"))
     imgname = "outputs/" + str(model.get("model_name")) + "-" + str(timenow) + ".png"
