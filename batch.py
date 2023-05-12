@@ -20,9 +20,9 @@ for model in models:
   payload = {
     "prompt": prompt,
     "negative_prompt": negative,
-    "steps": 15,
-    "width": 512,
-    "height": 512,
+    "steps": 30,
+    "width": 1024,
+    "height": 768,
     "seed": timenow,
     "cfg_scale": 9,
     "sampler_name": "DPM++ SDE Karras",
@@ -42,9 +42,9 @@ for model in models:
     }
     response2 = requests.post(url=f'{settings.url}/sdapi/v1/png-info', json=png_payload)
 
-    print(response2.json().get("info"))
+    #print(response2.json().get("info"))
 
     pnginfo = PngImagePlugin.PngInfo()
     pnginfo.add_text("parameters", response2.json().get("info"))
-    imgname = "outputs/img" + str(timenow) + "-" + str(model.get("model_name")) + ".png"
+    imgname = "outputs/" + str(model.get("model_name")) + "-" + str(timenow) + ".png"
     image.save(imgname, pnginfo=pnginfo)

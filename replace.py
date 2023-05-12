@@ -2,7 +2,7 @@ import requests
 import io
 import base64
 import time
-import settings
+import config.settings as settings
 from PIL import Image, PngImagePlugin
 
 names = ["shift","a-line","sheath","bodycon","tent","empire","strapless","halter","1-shoulder","apron","jumper","sun","wrap","pouf","slip","qi pao","shirt","maxi","ball gown","little black"]
