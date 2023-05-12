@@ -21,11 +21,11 @@ for model in models:
     "prompt": prompt,
     "negative_prompt": negative,
     "steps": 30,
-    "width": 1024,
+    "width": 512,
     "height": 768,
     "seed": timenow,
-    "cfg_scale": 9,
-    "sampler_name": "DPM++ SDE Karras",
+    "cfg_scale": 8,
+    "sampler_name": "Euler a",
   }
 
   print("Creating image for " + str(model.get("model_name")) + ". Number " + str(models.index(model) + 1) + " of " + str(len(models)) + ".")
