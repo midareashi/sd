@@ -1,1 +1,1 @@
-url = "http://127.0.0.1:7860"
+url = "https://732827a135fb337909.gradio.live"
