@@ -1,7 +1,7 @@
 prompt = """
-Young boy playing baseball, Sports Illustrated cover photo, telephoto lens, action shot, spectacular play, baseball uniform, baseball helmet, baseball bat, batting gloves, ball hitting bat, home run swing, major league baseball park, night time, stadium lighting, <hypernet:Deion-20000:1>
+Naruto
 """
 
 negative = """
-ugly, deformed, animation, anime, cartoon, comic, cropped, out of frame, low res, jpeg,
+Watermark, Text, censored, deformed, bad anatomy, disfigured, poorly drawn face, mutated, extra limb, ugly, poorly drawn hands, missing limb, floating limbs, disconnected limbs, disconnected head, malformed hands, long neck, mutated hands and fingers, bad hands, missing fingers, cropped, worst quality, low quality, mutation, poorly drawn, huge calf, bad hands, fused hand, missing hand, disappearing arms, disappearing thigh, disappearing calf, disappearing legs, missing fingers, fused fingers, abnormal eye proportion, Abnormal hands, abnormal legs, abnormal feet, abnormal fingers, adults, teenagers, old
 """
